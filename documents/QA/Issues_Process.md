@@ -24,8 +24,8 @@ The category of each task begins with the abbreviation of the area in which the 
 
 - PM: Project Management
 - DEV: Development
+- DES: Design
 - QA: Quality
-- EXP: Exploration
 
 ## Task Appointment
 
