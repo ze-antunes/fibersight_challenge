@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChartLine,
@@ -17,15 +16,13 @@ import logo from "../assets/images/logo192.png";
 import { useStateContext } from "../contexts/ContextProvider";
 
 let NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-  <TooltipComponent content={title} position="BottomCenter">
-    <button
-      type="button"
-      onClick={customFunc}
-      className="relative text-xl rounded-full w-9 px-2 py-1 hover:bg-[#6200EE] hover:text-[#E1E1E1]"
-    >
-      {icon}
-    </button>
-  </TooltipComponent>
+  <button
+    type="button"
+    onClick={customFunc}
+    className="relative text-xl rounded-full w-9 px-2 py-1 hover:bg-[#6200EE] hover:text-[#E1E1E1]"
+  >
+    {icon}
+  </button>
 );
 
 const Header = () => {
@@ -93,19 +90,17 @@ const Header = () => {
           color={currentColor}
           icon={<FontAwesomeIcon icon={faGear} />}
         />
-        <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-[#6200EE] hover:text-[#E1E1E1] rounded-lg"
-            onClick={() => handleClick("userProfile")}
-          >
-            <img src={avatar} alt="avatar" className="rounded-full w-8 h-8" />
-            <p>
-              <span className="text-14">Hi, </span>{" "}
-              <span className="font-bold text-14">José</span>
-            </p>
-            <MdKeyboardArrowDown className="text-14" />
-          </div>
-        </TooltipComponent>
+        <div
+          className="flex items-center gap-2 cursor-pointer p-1 hover:bg-[#6200EE] hover:text-[#E1E1E1] rounded-lg"
+          onClick={() => handleClick("userProfile")}
+        >
+          <img src={avatar} alt="avatar" className="rounded-full w-8 h-8" />
+          <p>
+            <span className="text-14">Hi, </span>{" "}
+            <span className="font-bold text-14">José</span>
+          </p>
+          <MdKeyboardArrowDown className="text-14" />
+        </div>
       </div>
     </div>
   );
