@@ -15,7 +15,7 @@ const Settings = () => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="float-right h-screen dark:text-gray-200 bg-white dark:bg-[#484B52] w-400"
+        className="float-right h-screen text-main-text-color dark:text-main-text-color-dark bg-main-bg dark:bg-main-dark-bg w-400"
       >
         <div className="flex justify-between items-center p-4 ml-4">
           <p className="font-semibold text-xl">Settings</p>
@@ -23,12 +23,12 @@ const Settings = () => {
             type="button"
             onClick={() => setSettings(false)}
             style={{ color: "rgb(153,171,180)", borderRadius: "50%" }}
-            className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+            className="text-2xl p-3  hover:drop-shadow-xl hover:bg-main-dark-bg dark:hover:bg-main-bg"
           >
-            <MdOutlineCancel />
+            <MdOutlineCancel className="text-main-text-color dark:text-main-text-color-dark hover:text-main-text-color-dark dark:hover:text-main-text-color" />
           </button>
         </div>
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
+        <div className="flex-col border-t-1 border-main-border-color dark:border-main-border-color-dark p-4 ml-4">
           <p className="font-semibold text-lg">Theme Options</p>
           <div className="mt-4">
             <input
@@ -59,7 +59,7 @@ const Settings = () => {
             </label>
           </div>
         </div>
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
+        <div className="flex-col border-t-1 border-main-border-color dark:border-main-border-color-dark p-4 ml-4">
           <p className="font-semibold text-lg">Theme Colors</p>
           <div className="flex gap-3">
             {themeColors.map((item, index) => (

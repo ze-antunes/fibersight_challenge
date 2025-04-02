@@ -1,8 +1,16 @@
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup, Polyline, Tooltip } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  Polyline,
+  Tooltip
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import fiberData from "../data/fiber_data.json";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const getColorFromTemperature = (temp) => {
   if (temp < 15) return "#0000FF"; // Azul para frio
@@ -13,6 +21,7 @@ const getColorFromTemperature = (temp) => {
 
 const FiberMap = () => {
   const [positions, setPositions] = useState([]);
+  let { currentMode } = useStateContext();
 
   useEffect(() => {
     // Usar o último timestamp
@@ -38,7 +47,13 @@ const FiberMap = () => {
       zoom={13}
       style={{ width: "100%", height: "400px" }}
     >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"/>
+      <TileLayer
+        url={
+          currentMode === "Dark"
+            ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        }
+      />
       {positions.length > 1 &&
         positions.map((point, index) => {
           if (index === positions.length - 1) return null;
@@ -50,9 +65,12 @@ const FiberMap = () => {
               key={index}
               positions={[
                 [point.lat, point.lng],
-                [nextPoint.lat, nextPoint.lng],
+                [nextPoint.lat, nextPoint.lng]
               ]}
-              pathOptions={{ color: getColorFromTemperature(point.temperature), weight: 3 }}
+              pathOptions={{
+                color: getColorFromTemperature(point.temperature),
+                weight: 5
+              }}
             >
               <Tooltip>
                 <span>{`Temp: ${point.temperature.toFixed(1)} °C`}</span>

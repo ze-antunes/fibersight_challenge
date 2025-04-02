@@ -19,9 +19,9 @@ const App = () => {
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
+        <div className="flex relative dark:bg-secondary-dark-bg">
           <div
-            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full`}
+            className={`dark:bg-secondary-dark-bg bg-secondary-bg min-h-screen w-full`}
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Header />

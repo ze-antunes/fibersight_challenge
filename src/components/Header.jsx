@@ -12,14 +12,15 @@ import {
 
 import avatar from "../data/avatar.jpg";
 import { links } from "../data/content";
-import logo from "../assets/images/logo192.png";
+import logoWhite from "../assets/images/logo_white.svg";
+import logoBlack from "../assets/images/logo_black.svg";
 import { useStateContext } from "../contexts/ContextProvider";
 
 let NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <button
     type="button"
     onClick={customFunc}
-    className="relative text-xl rounded-full w-9 px-2 py-1 hover:bg-[#6200EE] hover:text-[#E1E1E1]"
+    className="relative text-xl rounded-full w-9 px-2 py-1 text-main-text-color hover:bg-primary hover:text-main-text-color-dark dark:text-main-text-color-dark dark:hover:bg-primary-dark dark:hover:text-main-text-color"
   >
     {icon}
   </button>
@@ -35,7 +36,8 @@ const Header = () => {
     handleClick,
     screenSize,
     setScreenSize,
-    currentColor
+    currentColor,
+    currentMode
   } = useStateContext();
 
   useEffect(() => {
@@ -57,17 +59,17 @@ const Header = () => {
   }, [screenSize]);
 
   return (
-    <div className="flex items-center justify-between px-10 py-2 relative bg-white">
+    <div className="flex items-center justify-between px-10 py-2 relative bg-main-bg dark:bg-main-dark-bg">
       <div className="flex gap-8">
         <NavLink to="/">
-          <img src={logo} alt="FiberSight" width="100" height="auto" />
+          <img src={currentMode === "Dark" ? logoWhite : logoBlack} alt="FiberSight" width="100" height="auto" />
         </NavLink>
         <div className="flex gap-4">
           {links.map((item) => (
             <NavLink
               key={item.name}
               to={"/" + item.to}
-              className="flex items-center gap-1 px-2 py-1 rounded-md font-medium hover:bg-[#6200EE] hover:text-[#E1E1E1]"
+              className="flex items-center gap-1 px-2 py-1 rounded-md font-medium text-main-text-color hover:bg-primary hover:text-main-text-color-dark dark:text-main-text-color-dark dark:hover:bg-primary-dark dark:hover:text-main-text-color"
             >
               {item.icon} {item.name}
             </NavLink>
@@ -78,20 +80,16 @@ const Header = () => {
       <div className="flex items-center gap-2">
         <NavButton
           title="Notification"
-          dotColor="#262626"
           customFunc={() => handleClick("notification")}
-          color={currentColor}
           icon={<FontAwesomeIcon icon={faBell} />}
         />
         <NavButton
           title="Settings"
-          dotColor="#262626"
           customFunc={() => handleClick(setSettings(true))}
-          color={currentColor}
           icon={<FontAwesomeIcon icon={faGear} />}
         />
         <div
-          className="flex items-center gap-2 cursor-pointer p-1 hover:bg-[#6200EE] hover:text-[#E1E1E1] rounded-lg"
+          className="flex items-center gap-2 cursor-pointer p-1 text-main-text-color hover:bg-primary hover:text-main-text-color-dark dark:text-main-text-color-dark dark:hover:bg-primary-dark dark:hover:text-main-text-color rounded-lg"
           onClick={() => handleClick("userProfile")}
         >
           <img src={avatar} alt="avatar" className="rounded-full w-8 h-8" />
