@@ -19,22 +19,23 @@ const getColorFromTemperature = (temp) => {
   return "#FF0000"; // Vermelho quente
 };
 
-const FiberMap = () => {
+const FiberMap = (height) => {
   const [positions, setPositions] = useState([]);
   let { currentMode } = useStateContext();
 
   useEffect(() => {
     // Usar o último timestamp
     const latestData = fiberData[fiberData.length - 1].positions;
+    // console.table(latestData)
 
     // Gerar coordenadas fictícias com base no metro
     // Ponto inicial arbitrário
-    const startLat = 40.6405;
-    const startLng = -8.6538;
+    const startLat = 40.6416;
+    const startLng = -8.6531;
 
     const coords = latestData.map((pos, index) => ({
-      lat: startLat + index * 0.0002, // Simulação de distância
-      lng: startLng + index * 0.0002,
+      lat: startLat + index * 0.000002, // Simulação de distância
+      lng: startLng + index * 0.00001,
       temperature: pos.temperature
     }));
 
@@ -43,9 +44,9 @@ const FiberMap = () => {
 
   return (
     <MapContainer
-      center={[40.6405, -8.6538]}
-      zoom={13}
-      style={{ width: "100%", height: "400px" }}
+      center={[40.6418, -8.652]}
+      zoom={18}
+      style={{ width: "100%", minHeight: height.height + "px" }}
     >
       <TileLayer
         url={
