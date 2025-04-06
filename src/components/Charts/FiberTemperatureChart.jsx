@@ -13,7 +13,7 @@ const FiberTemperatureChart = () => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    // Pegar os dados mais recentes
+    // Dados mais recentes
     const latestData = fiberData[fiberData.length - 1]?.positions || [];
 
     // Criar dados com base no metro
@@ -27,7 +27,7 @@ const FiberTemperatureChart = () => {
 
   return (
     <div className="w-full h-96 bg-main-bg dark:bg-main-dark-bg text-main-text-color dark:text-main-text-color-dark rounded-lg p-4">
-      <h2 className="font-semibold text-xl mb-4">Temperatura da Fibra por Metro</h2>
+      <h2 className="font-semibold text-xl mb-4">Fiber Temperature per Meter</h2>
       <ResponsiveContainer width="100%" height="80%">
         <LineChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />

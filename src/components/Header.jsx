@@ -62,7 +62,12 @@ const Header = () => {
     <div className="flex items-center justify-between px-10 py-2 relative bg-main-bg dark:bg-main-dark-bg">
       <div className="flex gap-8">
         <NavLink to="/">
-          <img src={currentMode === "Dark" ? logoWhite : logoBlack} alt="FiberSight" width="100" height="auto" />
+          <img
+            src={currentMode === "Dark" ? logoWhite : logoBlack}
+            alt="FiberSight"
+            width="100"
+            height="auto"
+          />
         </NavLink>
         <div className="flex gap-4">
           {links.map((item) => (

@@ -1,11 +1,10 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { BsCheck } from "react-icons/bs";
-import { themeColors } from "../data/content";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Settings = () => {
-  let { setColor, setMode, currentMode, currentColor, setSettings } =
+  let { setMode, currentMode, setSettings } =
     useStateContext();
 
   return (
@@ -57,30 +56,6 @@ const Settings = () => {
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
               Dark
             </label>
-          </div>
-        </div>
-        <div className="flex-col border-t-1 border-main-border-color dark:border-main-border-color-dark p-4 ml-4">
-          <p className="font-semibold text-lg">Theme Colors</p>
-          <div className="flex gap-3">
-            {themeColors.map((item, index) => (
-              <div
-                key={index}
-                className="relative mt-2 cursor-pointer flex gap-5 items-center"
-              >
-                <button
-                  type="button"
-                  className="h-10 w-10 rounded-full cursor-pointer"
-                  style={{ backgroundColor: item.color }}
-                  onClick={() => setColor(item.color)}
-                >
-                  <BsCheck
-                    className={`ml-2 text-2xl text-white ${
-                      item.color === currentColor ? "block" : "hidden"
-                    }`}
-                  />
-                </button>
-              </div>
-            ))}
           </div>
         </div>
       </div>

@@ -16,8 +16,6 @@ const TrendsChart = () => {
 
   useEffect(() => {
     const historicalData = fiberData.slice(-1440); // Supondo 1 ponto por minuto
-
-    
     
     if (historicalData.length === 0) return;
     

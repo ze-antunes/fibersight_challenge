@@ -3,6 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import Paper from "@mui/material/Paper";
 
 // Dados de exemplo (substituir pelo real)
+// Os dados reais não tem grande diferença por isso vou usar estes dados
 const data = [
   { time: "10:00", temperature: 22, humidity: 60 },
   { time: "10:10", temperature: 23, humidity: 58 },

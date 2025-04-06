@@ -23,7 +23,7 @@ const Analytics = () => {
         <div className="bg-main-bg dark:bg-main-dark-bg text-main-text-color dark:text-main-text-color-dark rounded-lg shadow-lg p-4 ml-4">
           <h2 className="font-semibold text-xl mb-4">Averages and Extremes</h2>
           <div className="flex gap-6">
-            <div className="w-1/3 px-4 py-2 bg-secondary-bg rounded-lg shadow-lg">
+            <div className="w-1/3 px-4 py-2 bg-secondary-bg dark:bg-[#363636] rounded-lg shadow-lg">
               <h3 className="font-semibold">Temperature</h3>
               <ul>
                 <li>Average: {averageTemperature.toFixed(2)} Cº</li>
@@ -31,15 +31,7 @@ const Analytics = () => {
                 <li>Min: {minTemperature} Cº</li>
               </ul>
             </div>
-            <div className="w-1/3 px-4 py-2 bg-secondary-bg rounded-lg shadow-lg">
-              <h3 className="font-semibold">Humidity</h3>
-              <ul>
-                <li>Average: {fiberData.length} %</li>
-                <li>Max: {fiberData.length} %</li>
-                <li>Min: {fiberData.length} %</li>
-              </ul>
-            </div>
-            <div className="w-1/3 px-4 py-2 bg-secondary-bg rounded-lg shadow-lg">
+            <div className="w-1/3 px-4 py-2 bg-secondary-bg dark:bg-[#363636] rounded-lg shadow-lg">
               <h3 className="font-semibold">Humidity</h3>
               <ul>
                 <li>Average: {fiberData.length} %</li>

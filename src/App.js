@@ -10,9 +10,7 @@ import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
   let {
-    activeMenu,
     settings,
-    currentColor,
     currentMode
   } = useStateContext();
 

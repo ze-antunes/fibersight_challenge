@@ -7,7 +7,7 @@ const MapLegend = () => {
         <div className="flex items-center">
           <span className="w-6 h-3 bg-blue-700 block mr-2"></span>
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            Abaixo de 15°C
+            Below 15°C
           </p>
         </div>
         <div className="flex items-center">
@@ -25,7 +25,7 @@ const MapLegend = () => {
         <div className="flex items-center">
           <span className="w-6 h-3 bg-red-600 block mr-2"></span>
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            Acima de 35°C
+            Above 35°C
           </p>
         </div>
       </div>
